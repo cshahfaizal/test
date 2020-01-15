@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="app.airtouchmedia.candidate.com.viewmodel.TransactionViewModel" />
+
+        <variable
+            name="scrollingActivity"
+            type="app.airtouchmedia.candidate.com.view.TransactionFragment" />
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".view.TransactionFragment"
+        tools:showIn="@layout/fragment_transaction">
+
+        <RelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#929593"
+                android:padding="@dimen/dimen_16dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimen_16dp"
+                android:textStyle="bold|italic" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recylerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/details"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:paddingStart="@dimen/dimen_8dp"
+                android:paddingEnd="@dimen/dimen_8dp"
+                android:scrollbars="vertical"
+                app:postInfoListActivity="@{scrollingActivity}"
+                app:postInfoListAdpater="@{mainData}" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="detail_backdrop_height">220dp</dimen>
+    <dimen name="scrolling_backdrop_height">200dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+</resources>
