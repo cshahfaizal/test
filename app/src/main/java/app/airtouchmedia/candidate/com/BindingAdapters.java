@@ -41,9 +41,9 @@ public class BindingAdapters {
 
 
     /**
-     * To show the list of comments in recyclerview
-     * @param transactionViewModel : View model of comments lists
-     * @param recyclerView       : jsonplaceholder comments recycler view
+     * To show the list of transaction in recyclerview
+     * @param transactionViewModel : View model of transaction lists
+     * @param recyclerView       : jsonplaceholder transaction recycler view
      * @param activity:          TransactionFragment
      */
 
@@ -55,8 +55,8 @@ public class BindingAdapters {
         final TransactionAdapter listAdapter = new TransactionAdapter(transactionViewModel);
         recyclerView.setAdapter(listAdapter);
 
-        //set comments object values to  list
-        transactionViewModel.getAllComments().observe(activity, listAdapter::setCommentsList);
+        //set transaction object values to  list
+        transactionViewModel.getAllTransactions().observe(activity, listAdapter::setTransactionList);
     }
 
 }

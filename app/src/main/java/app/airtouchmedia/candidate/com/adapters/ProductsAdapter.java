@@ -27,7 +27,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     private final String TAG = "ProductsAdapter";
 
     /**
-     * Scrolling activity view model
+     * Products activity view model
      */
     private ProductsViewModel viewModel;
 

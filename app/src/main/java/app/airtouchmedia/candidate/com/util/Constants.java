@@ -8,11 +8,14 @@ public class Constants {
     public static final String BASE_URL = "http://gnb.dev.airtouchmedia.com";
 
     /**
-     * INTENT KEY
+     * Bundle KEY
      */
     public static final String KEY_TRANSACTION_RESULT = "KEY_TRANSACTION_RESULT";
 
 
+    /**
+     * Bundle KEY
+     */
     public static final String KEY_RATES_RESULT1 = "KEY_RATES_RESULT1";
 
 }

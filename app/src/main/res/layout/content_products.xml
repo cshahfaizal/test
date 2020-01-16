@@ -10,7 +10,7 @@
             type="app.airtouchmedia.candidate.com.viewmodel.ProductsViewModel" />
 
         <variable
-            name="scrollingActivity"
+            name="productsFragment"
             type="app.airtouchmedia.candidate.com.view.ProductsFragment" />
 
     </data>
@@ -39,19 +39,6 @@
                 android:textStyle="bold"
                 android:visibility="@{mainData.onError}" />
 
-            <Button
-                android:id="@+id/retry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/dimen_4dp"
-                android:background="@color/colorBlue"
-                android:text="@string/btnRetry"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimen_16dp"
-                android:textStyle="bold"
-                android:visibility="@{mainData.onError}" />
-
         </LinearLayout>
 
         <RelativeLayout
@@ -69,7 +56,7 @@
                 android:paddingStart="@dimen/dimen_8dp"
                 android:paddingEnd="@dimen/dimen_8dp"
                 android:scrollbars="vertical"
-                app:postListActivity="@{scrollingActivity}"
+                app:postListActivity="@{productsFragment}"
                 app:postListAdpater="@{mainData}" />
 
         </RelativeLayout>

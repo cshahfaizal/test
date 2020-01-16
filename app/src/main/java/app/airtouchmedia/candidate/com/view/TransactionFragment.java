@@ -45,9 +45,15 @@ public class TransactionFragment extends Fragment implements NetworkChangeEventL
      */
     NavController navController;
 
+    /**
+     * Current Rates
+     */
     ArrayList<Transactions> currencyRates;
 
-    private static HashMap<String, HashMap<String, String>> productTransactions;
+    /**
+     * Product transaction
+     */
+    HashMap<String, HashMap<String, String>> productTransactions;
 
 
     @Override
@@ -58,16 +64,16 @@ public class TransactionFragment extends Fragment implements NetworkChangeEventL
             binding = FragmentTransactionBinding.inflate(inflater, container, false);
             TransactionViewModel areaViewModel = ViewModelProviders.of(this,
                     new TransactionViewModelFactory(this.getActivity().getApplication(), currencyRates)).get(TransactionViewModel.class);
-            setBindingAttributes(currencyRates, areaViewModel);
+            setBindingAttributes(areaViewModel);
         }
         return binding.getRoot();
     }
 
 
-    private void setBindingAttributes(ArrayList<Transactions> myObject, TransactionViewModel areaViewModel) {
+    private void setBindingAttributes( TransactionViewModel areaViewModel) {
         binding.setMainData(areaViewModel);
         binding.included.setMainData(areaViewModel);
-        binding.included.setScrollingActivity(this);
+        binding.included.setTransactionFragment(this);
     }
 
     @Override
@@ -75,7 +81,7 @@ public class TransactionFragment extends Fragment implements NetworkChangeEventL
         super.onViewCreated(view, savedInstanceState);
         networkChangeEventListener = new NetworkChangeEventListener();
         navController = Navigation.findNavController(this.getActivity(), R.id.my_nav_host_fragment);
-        sumValuel();
+        sumOfTransaction();
     }
 
     @Override
@@ -112,7 +118,7 @@ public class TransactionFragment extends Fragment implements NetworkChangeEventL
     }
 
 
-    void sumValuel(){
+    void sumOfTransaction(){
         Thread workingThread = new Thread(){
             public void run(){
                 BigDecimal total = new BigDecimal(0);
@@ -122,14 +128,14 @@ public class TransactionFragment extends Fragment implements NetworkChangeEventL
                         newSum = new BigDecimal(transaction.amount);
                     } else {
                         BigDecimal amount = new BigDecimal(transaction.amount);
-                        BigDecimal rate = new BigDecimal(TransactionFragment.productTransactions.get(transaction.currency).get("EUR"));
+                        BigDecimal rate = new BigDecimal(productTransactions.get(transaction.currency).get("EUR"));
                         newSum = amount.multiply(rate).setScale(2, RoundingMode.HALF_EVEN);
                     }
                     total = total.add(newSum).setScale(2, RoundingMode.HALF_EVEN);
                 }
                 final BigDecimal finalTotal = total;
 
-                binding.included.details.setText(finalTotal.doubleValue() + " EUR");
+                binding.included.transactionValue.setText(finalTotal.doubleValue() + " EUR");
             }
         };
         workingThread.start();

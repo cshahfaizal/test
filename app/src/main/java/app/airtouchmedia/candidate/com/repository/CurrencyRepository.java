@@ -15,19 +15,19 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class CommentsRepository {
+public class CurrencyRepository {
 
     /**
      * TAG
      */
-    private static final String TAG = "CommentsRepository";
+    private static final String TAG = "CurrencyRepository";
 
     /**
-     * funtion to provide list of comments
+     * funtion to provide list of rates
      */
     public MutableLiveData<List<Rates>> getMutableLiveDataRates(final ResultListener resultListener, Context context) {
 
-        //Comments list
+        //Rates list
         MutableLiveData<List<Rates>> mutableLiveData = new MutableLiveData<>();
 
         //retrofit service
@@ -43,9 +43,9 @@ public class CommentsRepository {
                     }
 
                     @Override
-                    public void onNext(List<Rates> comments) {
-                        Log.d(TAG, "initRecycler: initRequest onNext"+comments.size());
-                        mutableLiveData.setValue(comments);
+                    public void onNext(List<Rates> transactions) {
+                        Log.d(TAG, "initRecycler: initRequest onNext"+transactions.size());
+                        mutableLiveData.setValue(transactions);
                         resultListener.onSuccess();
                     }
 
@@ -67,11 +67,11 @@ public class CommentsRepository {
 
 
     /**
-     * funtion to provide list of comments
+     * funtion to provide list of transations
      */
     public MutableLiveData<List<Transactions>> getMutableLiveDataTransaction(final ResultListener resultListener, Context context) {
 
-        //Comments list
+        //Rates list
         MutableLiveData<List<Transactions>> mutableLiveData = new MutableLiveData<>();
 
         //retrofit service
@@ -87,9 +87,9 @@ public class CommentsRepository {
                     }
 
                     @Override
-                    public void onNext(List<Transactions> comments) {
-                        Log.d(TAG, "initRecycler: initRequest onNext"+comments.size());
-                        mutableLiveData.setValue(comments);
+                    public void onNext(List<Transactions> transactions) {
+                        Log.d(TAG, "initRecycler: initRequest onNext"+transactions.size());
+                        mutableLiveData.setValue(transactions);
                         resultListener.onSuccess();
                     }
 

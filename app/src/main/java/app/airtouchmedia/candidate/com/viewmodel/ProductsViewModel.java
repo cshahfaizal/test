@@ -27,7 +27,7 @@ import app.airtouchmedia.candidate.com.adapters.ProductsAdapter;
 import app.airtouchmedia.candidate.com.listeners.ResultListener;
 import app.airtouchmedia.candidate.com.model.Rates;
 import app.airtouchmedia.candidate.com.model.Transactions;
-import app.airtouchmedia.candidate.com.repository.CommentsRepository;
+import app.airtouchmedia.candidate.com.repository.CurrencyRepository;
 import app.airtouchmedia.candidate.com.util.ViewModelCallback;
 
 
@@ -41,7 +41,7 @@ public class ProductsViewModel extends ViewModelCallback implements ResultListen
     /**
      * Post And Images Repository
      */
-    private CommentsRepository postAndImagesRepository;
+    private CurrencyRepository postAndImagesRepository;
 
     /**
      * To handle multiple clicks
@@ -86,7 +86,7 @@ public class ProductsViewModel extends ViewModelCallback implements ResultListen
 
 
     public ProductsViewModel(@NonNull Application application) {
-        postAndImagesRepository = new CommentsRepository();
+        postAndImagesRepository = new CurrencyRepository();
         productsLivedata = new MutableLiveData<String>();
         this.application = application;
 

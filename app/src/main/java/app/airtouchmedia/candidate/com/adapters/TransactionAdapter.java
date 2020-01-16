@@ -25,14 +25,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     private final String TAG = "TransactionAdapter";
 
     /**
-     * Detailing view model
+     * Transaction view model
      */
     private TransactionViewModel transactionViewModel;
 
     /**
-     * List of comments
+     * List of transactions
      */
-    private ArrayList<Transactions> comments;
+    private ArrayList<Transactions> transactions;
 
     /**
      *
@@ -53,9 +53,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         TransactionViewModel viewModel = transactionViewModel;
-        viewHolder.binding.name.setText(comments.get(i).amount);
-        viewHolder.binding.currency.setText(comments.get(i).currency);
-
+        viewHolder.binding.name.setText(transactions.get(i).amount);
+        viewHolder.binding.currency.setText(transactions.get(i).currency);
         viewHolder.binding.setMainData(viewModel);
         viewHolder.binding.setSimpleListAdapter(this);
         viewHolder.binding.executePendingBindings();
@@ -63,7 +62,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
     @Override
     public int getItemCount() {
-        return (comments == null) ? 0 : comments.size();
+        return (transactions == null) ? 0 : transactions.size();
     }
 
     @Override
@@ -76,16 +75,16 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         return position;
     }
 
-    public void setCommentsList(ArrayList<Transactions> commentsList) {
-        Log.d(TAG, "setCommentsList:");
-        this.comments = commentsList;
+    public void setTransactionList(ArrayList<Transactions> transactionsArrayList) {
+        Log.d(TAG, "setTransactionList:");
+        this.transactions = transactionsArrayList;
         notifyDataSetChanged();
     }
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        //Comment item binding
+        //Transaction item binding
         TransactionItemBinding binding;
 
         ViewHolder(View itemView) {

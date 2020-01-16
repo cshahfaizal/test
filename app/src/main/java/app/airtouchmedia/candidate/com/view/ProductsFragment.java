@@ -60,7 +60,7 @@ public class ProductsFragment extends Fragment implements NetworkChangeEventList
     private void setBindingAttributes(ProductsViewModel areaViewModel) {
         binding.setMainData(areaViewModel);
         binding.included.setMainData(areaViewModel);
-        binding.included.setScrollingActivity(this);
+        binding.included.setProductsFragment(this);
         networkChangeEventListener = new NetworkChangeEventListener();
         navController = Navigation.findNavController(this.getActivity(), R.id.my_nav_host_fragment);
         handleCallBacks();
@@ -104,7 +104,6 @@ public class ProductsFragment extends Fragment implements NetworkChangeEventList
 
     @Override
     public void onStateReceived(boolean state) {
-        binding.included.retry.setEnabled(state);
         if (!state) {
             Toast.makeText(this.getContext(), R.string.network_ErrorMsg, Toast.LENGTH_LONG).show();
         }

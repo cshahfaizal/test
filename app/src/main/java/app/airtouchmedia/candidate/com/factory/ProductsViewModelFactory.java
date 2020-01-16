@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import app.airtouchmedia.candidate.com.viewmodel.ProductsViewModel;
 
 /**
- * Detailing viewModel factory class
+ * Products viewModel factory class
  */
 public class ProductsViewModelFactory implements ViewModelProvider.Factory {
 

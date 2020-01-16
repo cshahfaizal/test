@@ -7,10 +7,6 @@
         <variable
             name="mainData"
             type="app.airtouchmedia.candidate.com.viewmodel.TransactionViewModel" />
-
-
-
-
     </data>
 
     <android.support.design.widget.CoordinatorLayout

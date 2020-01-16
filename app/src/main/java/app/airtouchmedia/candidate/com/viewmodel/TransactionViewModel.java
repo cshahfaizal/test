@@ -50,8 +50,8 @@ public class TransactionViewModel extends ViewModelCallback implements ResultLis
         setProductsLiveData(mParam);
     }
 
-    public LiveData<ArrayList<Transactions>> getAllComments() {
-        Log.d(TAG,"getAllComments: "+ getProductsLiveData().getValue());
+    public LiveData<ArrayList<Transactions>> getAllTransactions() {
+        Log.d(TAG,"getAllTransactions: "+ getProductsLiveData().getValue());
         return getProductsLiveData();
     }
 
